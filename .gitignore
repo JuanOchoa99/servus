@@ -254,3 +254,8 @@ markdown/
 
 # Turbo
 .turbo
+
+# GitHub Actions (mantener estos archivos)
+!.github/
+!.github/workflows/
+!.github/workflows/*.yml
