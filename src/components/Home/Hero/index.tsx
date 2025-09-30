@@ -114,7 +114,7 @@ const Hero = () => {
           >
             <div className="ml-20 -mr-64">
               <Image
-                src= {`${getImagePrefix()}images/hero/banner-image.png`}
+                src= {`${getImagePrefix()}images/principal.png`}
                 alt="Banner"
                 width={1150}
                 height={1150}
