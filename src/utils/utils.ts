@@ -1,7 +1,6 @@
 const getImagePrefix = () => {
-  return process.env.NODE_ENV === "production"
-    ? "/Crypgo/"
-    : "";
+  // Mirror Next.js basePath for GitHub Pages deployment
+  return process.env.NODE_ENV === "production" ? "/servus/" : "";
 };
 
 export { getImagePrefix };
