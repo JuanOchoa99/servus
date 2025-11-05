@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
-// Get basePath from environment variable for GitHub Pages
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+// Get basePath from environment variable for GitHub Pages, fallback for local builds
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? (process.env.NODE_ENV === "production" ? "/servus" : "");
 
 const config: Config = {
   darkMode: "class",
