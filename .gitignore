@@ -259,3 +259,8 @@ markdown/
 !.github/
 !.github/workflows/
 !.github/workflows/*.yml
+
+# Archivos de desarrollo local
+server-prod.js
+serve-prod.sh
+test-prod-local.md
