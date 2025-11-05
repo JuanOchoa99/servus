@@ -1,16 +1,12 @@
 const getImagePrefix = () => {
   // Mirror Next.js basePath for GitHub Pages deployment
-  // Use NEXT_PUBLIC_BASE_PATH if available, otherwise check NODE_ENV
-  if (typeof window !== "undefined") {
-    // Client-side: check if we're on GitHub Pages
-    const pathname = window.location.pathname;
-    if (pathname.startsWith("/servus")) {
-      return "/servus";
-    }
-    return "";
-  }
-  // Server-side/build time: use environment variable or default
-  return process.env.NEXT_PUBLIC_BASE_PATH || (process.env.NODE_ENV === "production" ? "/servus" : "");
+  // NEXT_PUBLIC_BASE_PATH is set in next.config.mjs and available at build time
+  // This ensures images work correctly in both development and production
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  
+  // Return basePath with trailing slash if it exists, or empty string
+  // Image paths already start with /, so we need basePath/ to avoid double slashes
+  return basePath ? `${basePath}/` : "";
 };
 
 export { getImagePrefix };
