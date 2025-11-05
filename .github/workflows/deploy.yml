@@ -24,6 +24,8 @@ jobs:
   # Job de build
   build:
     runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_BASE_PATH: /servus
     
     steps:
     - name: Checkout código
