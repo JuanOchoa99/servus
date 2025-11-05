@@ -11,31 +11,31 @@ export const Introduction = () => {
     {
       id: "1",
       packageName: "NextJs",
-      img: "/images/documentation/Categories=Nextjs.svg",
+      img: "images/documentation/Categories=Nextjs.svg",
       version: "15.0.3",
     },
     {
       id: "2",
       packageName: "React",
-      img: "/images/documentation/Categories=React.svg",
+      img: "images/documentation/Categories=React.svg",
       version: "18.3.1",
     },
     {
       id: "3",
       packageName: "Tailwindcss",
-      img: "/images/documentation/Categories=Tailwind.svg",
+      img: "images/documentation/Categories=Tailwind.svg",
       version: "3.4.1",
     },
     {
       id: "4",
       packageName: "NextAuth",
-      img: "/images/documentation/nextauth.png",
+      img: "images/documentation/nextauth.png",
       version: "4.24.7",
     },
     {
       id: "5",
       packageName: "Typescript",
-      img: "/images/documentation/Categories=Typescript.svg",
+      img: "images/documentation/Categories=Typescript.svg",
       version: "5.6.3",
     },
   ];

@@ -1,5 +1,8 @@
 import type { Config } from "tailwindcss";
 
+// Get basePath from environment variable for GitHub Pages
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const config: Config = {
   darkMode: "class",
   content: [
@@ -165,8 +168,8 @@ const config: Config = {
         ],
       },
       backgroundImage: {
-        "start": "url('/images/work/bg-start.png')",
-        "perk": "url('/images/perks/perk-bg.png')",
+        "start": `url('${basePath}/images/work/bg-start.png')`,
+        "perk": `url('${basePath}/images/perks/perk-bg.png')`,
       },
       blur: {
         220: '220px',
