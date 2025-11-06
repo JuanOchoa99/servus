@@ -58,7 +58,7 @@ const ForgotPassword = () => {
               <div className="mb-10 text-center">
                 <Link href="/" className="mx-auto inline-block max-w-[160px]">
                   <Image
-                    src= {`${getImagePrefix()}images/logo/logo.svg`}
+                    src= {`${getImagePrefix()}images/logo/logo.png`}
                     alt="logo"
                     width={140}
                     height={30}
