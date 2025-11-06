@@ -74,7 +74,7 @@ const config: Config = {
           }
         ],
         76: [
-          "4.75rem",
+          "3.25rem",
           {
             lineHeight: "1.2",
           }
