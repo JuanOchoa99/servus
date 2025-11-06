@@ -56,10 +56,22 @@ jobs:
     - name: Setup Pages
       uses: actions/configure-pages@v4
       
+    - name: Listar contenido del artifact antes de subir
+      run: |
+        echo "=== Contenido de out/ ==="
+        ls -la out/
+        echo ""
+        echo "=== Verificando imágenes ==="
+        find out/images -type f | head -10
+        echo ""
+        echo "=== Verificando .nojekyll ==="
+        ls -la out/.nojekyll || echo "⚠️  .nojekyll no existe"
+      
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
         path: './out'
+        retention-days: 1
 
   # Job de deploy
   deploy:
