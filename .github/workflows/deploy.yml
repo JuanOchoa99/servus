@@ -70,16 +70,29 @@ jobs:
         echo "=== Verificando estructura completa ==="
         tree out/ -L 3 -I 'node_modules' || find out/ -maxdepth 3 -type d | head -20
       
+    - name: Verificar tamaño y contenido antes de subir
+      run: |
+        echo "=== Tamaño total de out/ ==="
+        du -sh out/
+        echo ""
+        echo "=== Tamaño de imágenes ==="
+        du -sh out/images/
+        echo ""
+        echo "=== Contando archivos ==="
+        echo "Total archivos en out/: $(find out/ -type f | wc -l)"
+        echo "Total imágenes: $(find out/images -type f | wc -l)"
+        echo ""
+        echo "=== Verificando archivos críticos ==="
+        test -f out/images/closed.svg && echo "✅ closed.svg" || echo "❌ closed.svg FALTA"
+        test -f out/images/logo/logo.svg && echo "✅ logo.svg" || echo "❌ logo.svg FALTA"
+        test -f out/images/icons/icon-blockchain.svg && echo "✅ icon-blockchain.svg" || echo "❌ icon-blockchain.svg FALTA"
+        test -f out/.nojekyll && echo "✅ .nojekyll" || echo "❌ .nojekyll FALTA"
+      
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
         path: './out'
         retention-days: 1
-      
-    - name: Verificar artifact después de subir
-      run: |
-        echo "✅ Artifact subido. Contiene:"
-        echo "Verifica en los logs del deploy que las imágenes estén incluidas"
 
   # Job de deploy
   deploy:
