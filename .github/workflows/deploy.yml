@@ -5,30 +5,25 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-
-  # Permite ejecutar manualmente el workflow
   workflow_dispatch:
 
-# Configura permisos para GITHUB_TOKEN
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Permite que solo un job se ejecute a la vez
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Job de build
   build:
     runs-on: ubuntu-latest
     env:
       NEXT_PUBLIC_BASE_PATH: /servus
     
     steps:
-    - name: Checkout código
+    - name: Checkout code
       uses: actions/checkout@v4
       
     - name: Setup Node.js
@@ -37,56 +32,17 @@ jobs:
         node-version: '18'
         cache: 'npm'
         
-    - name: Instalar dependencias
+    - name: Install dependencies
       run: npm ci
       
-    - name: Build del proyecto
+    - name: Build project
       run: npm run build
       
-    - name: Verificar que las imágenes se copiaron
-      run: |
-        echo "Verificando imágenes en out/images..."
-        ls -la out/images/ | head -10
-        test -f out/images/closed.svg && echo "✅ closed.svg existe" || echo "❌ closed.svg NO existe"
-        test -f out/images/logo/logo.svg && echo "✅ logo.svg existe" || echo "❌ logo.svg NO existe"
-      
-    - name: Crear .nojekyll si no existe
+    - name: Create .nojekyll
       run: touch out/.nojekyll
       
     - name: Setup Pages
       uses: actions/configure-pages@v4
-      
-    - name: Listar contenido del artifact antes de subir
-      run: |
-        echo "=== Contenido de out/ ==="
-        ls -la out/
-        echo ""
-        echo "=== Verificando imágenes ==="
-        find out/images -type f | head -10
-        echo ""
-        echo "=== Verificando .nojekyll ==="
-        ls -la out/.nojekyll || echo "⚠️  .nojekyll no existe"
-        echo ""
-        echo "=== Verificando estructura completa ==="
-        tree out/ -L 3 -I 'node_modules' || find out/ -maxdepth 3 -type d | head -20
-      
-    - name: Verificar tamaño y contenido antes de subir
-      run: |
-        echo "=== Tamaño total de out/ ==="
-        du -sh out/
-        echo ""
-        echo "=== Tamaño de imágenes ==="
-        du -sh out/images/
-        echo ""
-        echo "=== Contando archivos ==="
-        echo "Total archivos en out/: $(find out/ -type f | wc -l)"
-        echo "Total imágenes: $(find out/images -type f | wc -l)"
-        echo ""
-        echo "=== Verificando archivos críticos ==="
-        test -f out/images/closed.svg && echo "✅ closed.svg" || echo "❌ closed.svg FALTA"
-        test -f out/images/logo/logo.svg && echo "✅ logo.svg" || echo "❌ logo.svg FALTA"
-        test -f out/images/icons/icon-blockchain.svg && echo "✅ icon-blockchain.svg" || echo "❌ icon-blockchain.svg FALTA"
-        test -f out/.nojekyll && echo "✅ .nojekyll" || echo "❌ .nojekyll FALTA"
       
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
@@ -94,7 +50,6 @@ jobs:
         path: './out'
         retention-days: 1
 
-  # Job de deploy
   deploy:
     environment:
       name: github-pages

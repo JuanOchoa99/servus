@@ -4,9 +4,9 @@ const path = require('path');
 const OUT_DIR = path.join(__dirname, 'out');
 const BASE_PATH = '/servus';
 
-console.log('\n🔍 Verificando rutas de fuentes para producción...\n');
+console.log('\n🔍 Checking font paths for production...\n');
 
-// Verificar archivos de fuentes
+// Check font files
 const mediaDir = path.join(OUT_DIR, '_next/static/media');
 const fontFiles = [];
 
@@ -19,7 +19,7 @@ if (fs.existsSync(mediaDir)) {
   });
 }
 
-console.log('📁 Archivos de fuentes encontrados:');
+console.log('📁 Font files found:');
 fontFiles.forEach(file => {
   const fullPath = `${BASE_PATH}/_next/static/media/${file}`;
   const filePath = path.join(mediaDir, file);
@@ -27,12 +27,12 @@ fontFiles.forEach(file => {
   console.log(`  ${exists ? '✅' : '❌'} ${fullPath}`);
   if (exists) {
     const stats = fs.statSync(filePath);
-    console.log(`     Tamaño: ${(stats.size / 1024).toFixed(2)} KB`);
+    console.log(`     Size: ${(stats.size / 1024).toFixed(2)} KB`);
   }
 });
 
-// Verificar referencias en HTML
-console.log('\n📄 Verificando referencias en HTML...\n');
+// Check references in HTML
+console.log('\n📄 Checking references in HTML...\n');
 const htmlFiles = ['index.html', 'signin.html', 'signup.html', 'documentation.html', '404.html'];
 
 htmlFiles.forEach(htmlFile => {
@@ -40,7 +40,6 @@ htmlFiles.forEach(htmlFile => {
   if (fs.existsSync(htmlPath)) {
     const content = fs.readFileSync(htmlPath, 'utf-8');
     const fontMatches = content.match(/href=["']([^"']*\.woff2?[^"']*)["']/g) || [];
-    const fontPreloads = content.match(/href=["']([^"']*\.woff2?[^"']*)["']/g) || [];
     
     console.log(`📄 ${htmlFile}:`);
     if (fontMatches.length > 0) {
@@ -49,17 +48,17 @@ htmlFiles.forEach(htmlFile => {
         const startsWithBase = url.startsWith(BASE_PATH);
         console.log(`  ${startsWithBase ? '✅' : '⚠️ '} ${url}`);
         if (!startsWithBase) {
-          console.log(`     ⚠️  ADVERTENCIA: No incluye basePath ${BASE_PATH}`);
+          console.log(`     ⚠️  WARNING: Missing basePath ${BASE_PATH}`);
         }
       });
     } else {
-      console.log(`  ℹ️  No se encontraron referencias de fuentes`);
+      console.log(`  ℹ️  No font references found`);
     }
   }
 });
 
-// Verificar referencias en CSS
-console.log('\n🎨 Verificando referencias en CSS...\n');
+// Check references in CSS
+console.log('\n🎨 Checking references in CSS...\n');
 const cssDir = path.join(OUT_DIR, '_next/static/css');
 if (fs.existsSync(cssDir)) {
   const cssFiles = fs.readdirSync(cssDir).filter(f => f.endsWith('.css'));
@@ -75,15 +74,15 @@ if (fs.existsSync(cssDir)) {
         const startsWithBase = url.startsWith(BASE_PATH);
         console.log(`  ${startsWithBase ? '✅' : '⚠️ '} ${url}`);
         if (!startsWithBase) {
-          console.log(`     ⚠️  ADVERTENCIA: No incluye basePath ${BASE_PATH}`);
+          console.log(`     ⚠️  WARNING: Missing basePath ${BASE_PATH}`);
         }
       });
     }
   });
 }
 
-console.log('\n✅ Verificación completada\n');
-console.log('💡 Para probar localmente como en producción:');
+console.log('\n✅ Verification completed\n');
+console.log('💡 To test locally as production:');
 console.log(`   npm run serve:prod`);
-console.log(`   Luego visita: http://localhost:3000${BASE_PATH}/\n`);
+console.log(`   Then visit: http://localhost:3000${BASE_PATH}/\n`);
 
