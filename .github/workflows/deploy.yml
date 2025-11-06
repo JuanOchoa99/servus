@@ -43,6 +43,16 @@ jobs:
     - name: Build del proyecto
       run: npm run build
       
+    - name: Verificar que las imágenes se copiaron
+      run: |
+        echo "Verificando imágenes en out/images..."
+        ls -la out/images/ | head -10
+        test -f out/images/closed.svg && echo "✅ closed.svg existe" || echo "❌ closed.svg NO existe"
+        test -f out/images/logo/logo.svg && echo "✅ logo.svg existe" || echo "❌ logo.svg NO existe"
+      
+    - name: Crear .nojekyll si no existe
+      run: touch out/.nojekyll
+      
     - name: Setup Pages
       uses: actions/configure-pages@v4
       
