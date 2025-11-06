@@ -66,12 +66,20 @@ jobs:
         echo ""
         echo "=== Verificando .nojekyll ==="
         ls -la out/.nojekyll || echo "⚠️  .nojekyll no existe"
+        echo ""
+        echo "=== Verificando estructura completa ==="
+        tree out/ -L 3 -I 'node_modules' || find out/ -maxdepth 3 -type d | head -20
       
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
         path: './out'
         retention-days: 1
+      
+    - name: Verificar artifact después de subir
+      run: |
+        echo "✅ Artifact subido. Contiene:"
+        echo "Verifica en los logs del deploy que las imágenes estén incluidas"
 
   # Job de deploy
   deploy:
