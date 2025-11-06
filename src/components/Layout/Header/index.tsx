@@ -11,6 +11,7 @@ import Signin from "@/components/Auth/SignIn";
 import SignUp from "@/components/Auth/SignUp";
 import { useTheme } from "next-themes";
 import { Icon } from "@iconify/react/dist/iconify.js";
+import { getImagePrefix } from "@/utils/utils";
 
 const Header: React.FC = () => {
   const pathUrl = usePathname();
@@ -195,7 +196,8 @@ const Header: React.FC = () => {
             {/*  */}
             <button
               onClick={() => setNavbarOpen(false)}
-              className="bg-[url('/images/closed.svg')] bg-no-repeat bg-contain w-5 h-5 absolute top-0 right-0 mr-8 mt-8 dark:invert"
+              style={{ backgroundImage: `url('${getImagePrefix()}images/closed.svg')` }}
+              className="bg-no-repeat bg-contain w-5 h-5 absolute top-0 right-0 mr-8 mt-8 dark:invert"
               aria-label="Close menu Modal"
             ></button>
           </div>
