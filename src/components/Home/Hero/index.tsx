@@ -5,6 +5,13 @@ import { motion } from "framer-motion";
 import BuyCrypto from "./buy-form";
 import SellCrypto from "./sell-form";
 import CardSlider from "./slider";
+import {
+  aiTechnologies,
+  backendTechnologies,
+  frontendTechnologies,
+  platformTechnologies,
+  TechnologyCard,
+} from "@/app/api/data";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { getImagePrefix } from "@/utils/utils";
@@ -51,6 +58,39 @@ const Hero = () => {
     exit: { x: "100%", opacity: 0 },
     transition: { duration: 0.6 },
   };
+
+  const techSections: {
+    title: string;
+    description: string;
+    items: TechnologyCard[];
+  }[] = [
+    {
+      title: "Frontend & Mobile",
+      description:
+        "Interfaces your customers touch, crafted with modern web and native runtimes.",
+      items: frontendTechnologies,
+    },
+    {
+      title: "Backend & APIs",
+      description:
+        "Scalable services, business logic, and data orchestration that keep products running.",
+      items: backendTechnologies,
+    },
+    {
+      title: "Cloud & Data Platforms",
+      description:
+        "Infrastructure, databases, and cloud providers that deliver reliability at scale.",
+      items: platformTechnologies,
+    },
+    {
+      title: "AI & Automation",
+      description:
+        "Intelligent copilots, agentic workflows, and machine learning pipelines that ship to production.",
+      items: aiTechnologies,
+    },
+  ];
+
+  const autoplaySpeeds = [1400, 1800, 2000, 2200];
 
   return (
     <section
@@ -111,7 +151,31 @@ const Hero = () => {
             </div>
           </motion.div>
         </div>
-        <CardSlider />
+        <div className="mt-20 text-center">
+          <h2 className="text-white text-32 lg:text-40 font-semibold mb-4">
+            <span className="text-primary">Our</span> Technologies
+          </h2>
+          <p className="text-white/70 text-base lg:text-lg max-w-4xl mx-auto">
+            A modern stack aligned with product velocity, long-term maintainability, and cloud scalability.
+          </p>
+          <div className="mt-14 space-y-16">
+            {techSections.map((section, index) => (
+              <div key={section.title} className="text-center">
+                <h3 className="text-white text-24 lg:text-28 font-semibold mb-3">
+                  {section.title}
+                </h3>
+                <p className="text-white/60 text-sm lg:text-base max-w-3xl mx-auto mb-8">
+                  {section.description}
+                </p>
+                <CardSlider
+                  items={section.items}
+                  autoplaySpeed={autoplaySpeeds[index % autoplaySpeeds.length]}
+                  slidesToShow={Math.min(section.items.length, 4)}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
       <div className="absolute w-50 h-50 bg-gradient-to-bl from-tealGreen from-50% to-charcoalGray to-60% blur-400 rounded-full -top-64 -right-14 -z-1"></div>
 
