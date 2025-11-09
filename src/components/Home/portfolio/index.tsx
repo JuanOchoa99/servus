@@ -1,72 +1,127 @@
 "use client";
-import Image from "next/image";
-import { portfolioData } from "@/app/api/data";
-import { motion } from "framer-motion";
-import { getImagePrefix } from "@/utils/utils";
+import { useEffect, useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { projectShowcase } from "@/app/api/data";
+
+const DISPLAY_COUNT = 6;
+const ROTATE_INTERVAL = 8000;
+const ROTATE_STEP = 3;
+const PROJECT_ROTATE_INTERVAL = 22000;
 
 const Portfolio = () => {
+  const [projectIndex, setProjectIndex] = useState(0);
+  const project = projectShowcase[projectIndex];
+  const highlightCount = project.highlights.length;
+  const visibleCount = Math.min(DISPLAY_COUNT, highlightCount);
+  const [startIndex, setStartIndex] = useState(0);
+
+  useEffect(() => {
+    setStartIndex(0);
+  }, [projectIndex]);
+
+  useEffect(() => {
+    if (projectShowcase.length <= 1) {
+      return;
+    }
+    const timer = setInterval(() => {
+      setProjectIndex((prev) => (prev + 1) % projectShowcase.length);
+    }, PROJECT_ROTATE_INTERVAL);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    if (highlightCount <= visibleCount) {
+      return;
+    }
+    const timer = setInterval(() => {
+      setStartIndex((prev) => (prev + ROTATE_STEP) % highlightCount);
+    }, ROTATE_INTERVAL);
+    return () => clearInterval(timer);
+  }, [highlightCount, visibleCount]);
+
+  const currentHighlights = useMemo(() => {
+    return Array.from({ length: visibleCount }, (_, idx) => {
+      const index = (startIndex + idx) % highlightCount;
+      return project.highlights[index];
+    });
+  }, [highlightCount, project.highlights, startIndex, visibleCount]);
+
   return (
-    <section className="md:pt-48 sm:pt-28 pt-12" id="portfolio">
-      <div className="container mx-auto lg:max-w-screen-xl px-4 sm:px-6">
-        <div className="grid lg:grid-cols-2 items-center gap-20">
-          <motion.div
-            whileInView={{ y: 0, opacity: 1 }}
-            initial={{ y: "-100%", opacity: 0 }}
-            transition={{ duration: 0.6 }}
-            className="lg:-ml-32"
-          >
-            <Image
-              src= {`${getImagePrefix()}images/portfolio/img-portfolio.png`}
-              alt="Crypto Portfolio"
-              width={780}
-              height={700}
-            />
-          </motion.div>
+    <section
+      className="relative min-h-screen flex items-center py-20 sm:py-24 md:py-28"
+      id="portfolio"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-dark/80 via-deepSlate/70 to-dark/80" />
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-32 -left-24 h-72 w-72 rounded-full bg-primary/10 blur-220" />
+        <div className="absolute bottom-10 right-10 h-80 w-80 rounded-full bg-secondary/10 blur-220" />
+      </div>
 
-          <motion.div
-            whileInView={{ y: 0, opacity: 1 }}
-            initial={{ y: "100%", opacity: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="sm:text-28 text-18 text-muted mb-4">
-              Cryptocurrency <span className="text-primary">Portfolio</span>
+      <div className="container relative mx-auto lg:max-w-screen-xl px-4 sm:px-6 w-full">
+        <motion.div
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 24 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="grid gap-12 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]"
+        >
+          <div className="max-w-xl">
+            <p className="text-muted text-18 sm:text-20 mb-4">
+              {project.badge}{" "}
+              <span className="text-primary">{project.client}</span>
             </p>
-            <h2 className="text-white sm:text-40 text-30 mb-4 font-medium">
-              Create your crypto portfolio today with Cryp
-              <span className="text-primary">Go</span>!
+            <h2 className="text-white text-32 sm:text-40 lg:text-48 font-semibold leading-tight mb-5">
+              {project.title}
             </h2>
-            <p className="text-muted text-opacity-60 text-18">
-              Coinbase has a variety of features that make it the best
-              <br className="md:block hidden" /> place to start trading.
+            <p className="text-muted text-opacity-70 text-16 sm:text-18 leading-relaxed">
+              {project.summary}
             </p>
+          </div>
 
-            <table className="w-full sm:w-[80%]">
-              <tbody>
-                {portfolioData.map((item, index) => (
-                  <tr
-                    key={index}
-                    className="border-b border-dark_border border-opacity-10"
-                  >
-                    <td className="py-5">
-                      <div className="bg-primary p-4 rounded-full bg-opacity-20 w-fit">
-                        <Image
-                          src= {`${getImagePrefix()}${item.image}`}
-                          alt={item.title}
-                          width={35}
-                          height={35}
-                        />
-                      </div>
-                    </td>
-                    <td className="py-5">
-                      <h4 className="text-muted sm:text-28 text-22 ml-5">
-                        {item.title}
-                      </h4>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </motion.div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`${project.id}-${startIndex}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-3 gap-5"
+            >
+              {currentHighlights.map((highlight, idx) => (
+                <div
+                  key={`${highlight.title}-${idx}`}
+                  className={`rounded-2xl border border-dark_border/10 bg-dark/60 p-5 text-left transition duration-300 hover:-translate-y-1 hover:shadow-lg sm:h-full sm:flex sm:flex-col sm:justify-between ${highlight.accent}`}
+                >
+                  <h4 className="text-white text-18 sm:text-20 font-semibold mb-2">
+                    {highlight.title}
+                  </h4>
+                  <p className="text-muted text-opacity-60 text-14 sm:text-16 leading-relaxed">
+                    {highlight.description}
+                  </p>
+                </div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        </motion.div>
+
+        <div className="mt-10 flex flex-wrap justify-center gap-3">
+          {projectShowcase.map((proj, idx) => {
+            const isActive = idx === projectIndex;
+            return (
+              <button
+                key={proj.id}
+                type="button"
+                onClick={() => setProjectIndex(idx)}
+                className={`rounded-full border border-white/10 px-4 py-2 text-14 sm:text-16 transition ${
+                  isActive
+                    ? "bg-primary text-white shadow-lg"
+                    : "bg-dark/60 text-muted hover:bg-dark/80 hover:text-white"
+                }`}
+              >
+                {proj.client}
+              </button>
+            );
+          })}
         </div>
       </div>
     </section>
