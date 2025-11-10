@@ -4,9 +4,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { projectShowcase } from "@/app/api/data";
 
 const DISPLAY_COUNT = 6;
-const ROTATE_INTERVAL = 8000;
+const ROTATE_INTERVAL = 5500;
 const ROTATE_STEP = 3;
-const PROJECT_ROTATE_INTERVAL = 22000;
 
 const Portfolio = () => {
   const [projectIndex, setProjectIndex] = useState(0);
@@ -18,16 +17,6 @@ const Portfolio = () => {
   useEffect(() => {
     setStartIndex(0);
   }, [projectIndex]);
-
-  useEffect(() => {
-    if (projectShowcase.length <= 1) {
-      return;
-    }
-    const timer = setInterval(() => {
-      setProjectIndex((prev) => (prev + 1) % projectShowcase.length);
-    }, PROJECT_ROTATE_INTERVAL);
-    return () => clearInterval(timer);
-  }, []);
 
   useEffect(() => {
     if (highlightCount <= visibleCount) {
@@ -63,7 +52,7 @@ const Portfolio = () => {
           initial={{ opacity: 0, y: 24 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="grid gap-12 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]"
+          className="grid items-center gap-12 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]"
         >
           <div className="max-w-xl">
             <p className="text-muted text-18 sm:text-20 mb-4">
@@ -85,12 +74,12 @@ const Portfolio = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-3 gap-5"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-5"
             >
               {currentHighlights.map((highlight, idx) => (
                 <div
                   key={`${highlight.title}-${idx}`}
-                  className={`rounded-2xl border border-dark_border/10 bg-dark/60 p-5 text-left transition duration-300 hover:-translate-y-1 hover:shadow-lg sm:h-full sm:flex sm:flex-col sm:justify-between ${highlight.accent}`}
+                  className={`flex h-full min-h-[160px] flex-col justify-between rounded-2xl border border-dark_border/10 bg-dark/60 p-5 text-left transition duration-300 hover:-translate-y-1 hover:shadow-lg ${highlight.accent}`}
                 >
                   <h4 className="text-white text-18 sm:text-20 font-semibold mb-2">
                     {highlight.title}
