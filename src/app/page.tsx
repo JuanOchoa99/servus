@@ -8,7 +8,7 @@ import Upgrade from "@/components/Home/upgrade";
 import Perks from "@/components/Home/perks";
 import { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "CrypGo",
+  title: "Servus",
 };
 
 export default function Home() {
