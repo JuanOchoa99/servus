@@ -1,19 +1,29 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { pricedeta } from "@/app/api/data";
+import { TechnologyCard } from "@/app/api/data";
 import Image from "next/image";
 import { getImagePrefix } from "@/utils/utils";
 
-const CardSlider = () => {
+type CardSliderProps = {
+  items: TechnologyCard[];
+  autoplaySpeed?: number;
+  slidesToShow?: number;
+};
+
+const CardSlider = ({
+  items,
+  autoplaySpeed = 1500,
+  slidesToShow = 4,
+}: CardSliderProps) => {
   const settings = {
     autoplay: true,
     dots: false,
     arrows: false,
     infinite: true,
-    autoplaySpeed: 1500,
+    autoplaySpeed,
     speed: 300,
-    slidesToShow: 4,
+    slidesToShow,
     slidesToScroll: 1,
     cssEase: "ease-in-out",
     responsive: [
@@ -26,47 +36,55 @@ const CardSlider = () => {
       {
         breakpoint: 992,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: Math.min(slidesToShow, 2),
         },
       },
       {
-        breakpoint: 1024,
+        breakpoint: 1280,
         settings: {
-          slidesToShow: 4,
+          slidesToShow,
         },
       },
     ],
   };
   return (
-    <div className="lg:-mt-16 mt-16">
+    <div>
       <Slider {...settings}>
-        {pricedeta.map((item, index) => (
+        {items.map((item, index) => (
           <div key={index} className="pr-6">
             <div className="px-5 py-6 bg-dark_grey bg-opacity-80 rounded-xl">
               <div className="flex items-center gap-5">
-                <div
-                  className={`${item.background} ${item.padding} rounded-full`}
-                >
-                  <Image
-                    src= {`${getImagePrefix()}${item.icon}`}
-                    alt="icon"
-                    width={item.width}
-                    height={item.height}
-                  />
-                </div>
+                {item.icon ? (
+                  <div
+                    className={`${item.background} rounded-full flex items-center justify-center w-16 h-16`}
+                  >
+                    <Image
+                      src={`${getImagePrefix()}${item.icon}`}
+                      alt={`${item.title} logo`}
+                      width={40}
+                      height={40}
+                      className="w-10 h-10 object-contain"
+                    />
+                  </div>
+                ) : (
+                  <div
+                    className={`${item.background} rounded-full flex items-center justify-center w-16 h-16`}
+                  >
+                    <span className="text-white text-16 font-semibold">
+                      {item.short}
+                    </span>
+                  </div>
+                )}
                 <p className="text-white text-xs font-normal ">
                   <span className="text-16 font-bold mr-2">{item.title}</span>
                   {item.short}
                 </p>
               </div>
-              <div className="flex justify-between mt-7">
-                <div className="">
+              <div className="flex items-center mt-7">
+                <div>
                   <p className="text-16 font-bold text-white mb-0 leading-none">
-                    {item.price}
+                    {item.description}
                   </p>
-                </div>
-                <div className="">
-                  <span className="text-error text-xs">{item.mark}</span>
                 </div>
               </div>
             </div>

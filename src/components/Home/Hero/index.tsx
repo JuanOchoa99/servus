@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import BuyCrypto from "./buy-form";
 import SellCrypto from "./sell-form";
 import CardSlider from "./slider";
+import { technologyShowcase } from "@/app/api/data";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { getImagePrefix } from "@/utils/utils";
@@ -111,7 +112,9 @@ const Hero = () => {
             </div>
           </motion.div>
         </div>
-        <CardSlider />
+        <div className="lg:-mt-16 mt-16 relative z-10">
+          <CardSlider items={technologyShowcase} autoplaySpeed={1600} slidesToShow={4} />
+        </div>
       </div>
       <div className="absolute w-50 h-50 bg-gradient-to-bl from-tealGreen from-50% to-charcoalGray to-60% blur-400 rounded-full -top-64 -right-14 -z-1"></div>
 

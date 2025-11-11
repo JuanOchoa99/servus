@@ -1,0 +1,11 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="reactNativeLogoTitle">
+  <title id="reactNativeLogoTitle">React Native Logo</title>
+  <g fill="none" stroke="#3DDC84" stroke-width="20">
+    <ellipse rx="120" ry="240" transform="matrix(.866 -.5 .5 .866 256 256)"/>
+    <ellipse rx="120" ry="240" transform="matrix(-.866 -.5 .5 -.866 256 256)"/>
+    <ellipse rx="120" ry="240" transform="matrix(0 1 -1 0 256 256)"/>
+  </g>
+  <circle cx="256" cy="256" r="40" fill="#3DDC84"/>
+</svg>
+
+
