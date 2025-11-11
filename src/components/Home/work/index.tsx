@@ -22,16 +22,20 @@ const Work = () => {
 
   const services = [
     {
-      icon: "images/icons/icon-consulting.svg",
-      text: "Blockchain Consulting",
+      icon: "images/icons/icon-software.png",
+      text: "Innovative software",
     },
     {
-      icon: "images/icons/icon-blockchain.svg",
-      text: "Blockchain Solutions",
+      icon: "images/icons/icon-deliverable.png",
+      text: "Valuable deliverables",
     },
     {
-      icon: "images/icons/icon-Services.svg",
-      text: "Custom Development",
+      icon: "images/icons/icon-dolar.png",
+      text: "Affordable and negotiable rates",
+    },
+    { 
+      icon: "images/icons/icon-time.png",
+      text: "Timely completion",
     },
   ];
 
@@ -47,7 +51,7 @@ const Work = () => {
               Work with <span className="text-primary">us</span>
             </p>
             <h2 className="sm:text-40 text-30 text-white lg:w-full md:w-70% font-medium">
-              Successfully launch your blockchain project.
+              Unique solutions tailored to your needs.
             </h2>
             <div className="grid md:grid-cols-2 gap-7 mt-11">
               {services.map((service, index) => (
@@ -68,7 +72,7 @@ const Work = () => {
           <motion.div {...TopAnimation} className="lg:col-span-5 col-span-12">
             <div className="2xl:-mr-40 mt-9 flex justify-center">
               <Image
-                src= {`${getImagePrefix()}images/work/img-work-with-us.png`}
+                src= {`${getImagePrefix()}images/work/image.png`}
                 alt="image"
                 width={600}
                 height={425}
