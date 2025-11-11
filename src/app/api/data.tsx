@@ -16,167 +16,62 @@ export type TechnologyCard = {
 
 const createCard = (card: TechnologyCard) => card;
 
-export const frontendTechnologies: TechnologyCard[] = [
-  createCard({
-    title: "React",
-    short: "Web",
-    icon: "images/icons/react.svg",
-    background: "bg-warning bg-opacity-20",
-    description: "Interactive interfaces",
-    note: "Reusable component system",
-  }),
-  createCard({
-    title: "React Native",
-    short: "CLI & Expo",
-    icon: "images/icons/react.svg",
-    background: "bg-light_grey",
-    description: "CLI and Expo workflows",
-    note: "Single codebase delivery",
-  }),
-  createCard({
-    title: "Next.js",
-    short: "Web Framework",
-    icon: "images/icons/nextjs.svg",
-    background: "bg-warning bg-opacity-20",
-    description: "Hybrid static & SSR",
-    note: "Optimized React delivery",
-  }),
-  createCard({
-    title: "Angular",
-    short: "Web Framework",
-    icon: "images/icons/angular.svg",
-    background: "bg-light_grey",
-    description: "Enterprise-grade tooling",
-    note: "TypeScript-first platform",
-  }),
-  createCard({
-    title: "AngularJS",
-    short: "Legacy Support",
-    icon: "images/icons/angularjs.svg",
-    background: "bg-warning bg-opacity-20",
-    description: "Legacy app maintenance",
-    note: "Migration-ready expertise",
-  }),
-];
-
-export const backendTechnologies: TechnologyCard[] = [
-  createCard({
-    title: "NestJS",
-    short: "Backend Framework",
-    icon: "images/icons/nestjs.svg",
-    background: "bg-warning bg-opacity-20",
-    description: "Production-ready APIs",
-    note: "TypeScript-first architecture",
-  }),
-  createCard({
-    title: "Node.js",
-    short: "Runtime",
-    icon: "images/icons/nodejs.svg",
-    background: "bg-light_grey",
-    description: "Scalable event loop",
-    note: "Mission-critical services",
-  }),
-  createCard({
-    title: "Go",
-    short: "Backend Language",
-    icon: "images/icons/go.svg",
-    background: "bg-warning bg-opacity-20",
-    description: "High-performance services",
-    note: "Concurrency by design",
-  }),
-  createCard({
-    title: "Python",
-    short: "Backend Language",
-    icon: "images/icons/python.svg",
-    background: "bg-light_grey",
-    description: "Automation & data pipelines",
-    note: "Extensive ecosystem",
-  }),
-  createCard({
-    title: "Prisma",
-    short: "ORM",
-    icon: "images/icons/prisma.svg",
-    background: "bg-warning bg-opacity-20",
-    description: "Type-safe data access",
-    note: "Accelerated database workflows",
-  }),
-  createCard({
-    title: "TypeORM",
-    short: "ORM",
-    icon: "images/icons/TypeScript.svg",
-    background: "bg-light_grey",
-    description: "Enterprise data mapping",
-    note: "Supports multiple databases",
-  }),
-];
-
-export const platformTechnologies: TechnologyCard[] = [
+export const technologyShowcase: TechnologyCard[] = [
   createCard({
     title: "Google Cloud",
-    short: "Cloud Platform",
+    short: "GCP",
     icon: "images/icons/google-cloud.svg",
-    background: "bg-light_grey",
+    background: "bg-warning bg-opacity-20",
     description: "Managed infrastructure",
     note: "Global scale deployment",
   }),
   createCard({
-    title: "AWS",
-    short: "Cloud Platform",
-    icon: "images/icons/aws.svg",
+    title: "Microsoft Azure",
+    short: "Azure",
+    icon: "images/icons/Azure.svg",
     background: "bg-light_grey",
+    description: "Enterprise cloud stack",
+    note: "Hybrid and multi-cloud support",
+  }),
+  createCard({
+    title: "Amazon Web Services",
+    short: "AWS",
+    icon: "images/icons/AWS.svg",
+    background: "bg-warning bg-opacity-20",
     description: "Enterprise-grade hosting",
     note: "High availability services",
   }),
   createCard({
-    title: "PostgreSQL",
-    short: "Relational DB",
-    icon: "images/icons/postgresql.svg",
-    background: "bg-warning bg-opacity-20",
-    description: "ACID-compliant storage",
-    note: "Advanced SQL & extensions",
-  }),
-  createCard({
-    title: "MongoDB",
-    short: "NoSQL DB",
-    icon: "images/icons/mongodb.svg",
+    title: "GitHub",
+    short: "DevOps",
+    icon: "images/icons/github.svg",
     background: "bg-light_grey",
-    description: "Flexible document model",
-    note: "Horizontal scalability",
+    description: "Source control & CI",
+    note: "Actions and automation suite",
   }),
   createCard({
-    title: "Azure",
-    short: "Cloud Platform",
-    icon: "images/icons/azure.svg",
+    title: "Gemini",
+    short: "Google AI",
+    icon: "images/icons/gemini.svg",
     background: "bg-warning bg-opacity-20",
-    description: "Enterprise cloud stack",
-    note: "Hybrid and multi-cloud support",
+    description: "Multimodal intelligence",
+    note: "Reasoning and content AI",
   }),
-];
-
-export const aiTechnologies: TechnologyCard[] = [
   createCard({
-    title: "OpenAI API",
+    title: "Claude",
+    short: "Anthropic AI",
+    icon: "images/icons/claude-logo.svg",
+    background: "bg-light_grey",
+    description: "Safety-first copilots",
+    note: "Claude 3 family integration",
+  }),
+  createCard({
+    title: "OpenAI",
     short: "Generative AI",
     icon: "images/icons/openai.svg",
     background: "bg-warning bg-opacity-20",
     description: "Conversational copilots",
     note: "GPT-4o and Assistants API",
-  }),
-  createCard({
-    title: "TensorFlow",
-    short: "ML Framework",
-    icon: "images/icons/tensorflow.svg",
-    background: "bg-warning bg-opacity-20",
-    description: "Predictive modeling",
-    note: "Production-ready pipelines",
-  }),
-  createCard({
-    title: "Claude API",
-    short: "Anthropic Model",
-    icon: "images/icons/claude-logo.svg",
-    background: "bg-light_grey",
-    description: "Safety-first copilots",
-    note: "Claude 3 family integration",
   }),
 ];
 
@@ -184,6 +79,7 @@ export type ProjectHighlight = {
   title: string;
   description: string;
   accent: string;
+  icon?: string;
 };
 
 export type ProjectCaseStudy = {
@@ -208,16 +104,19 @@ export const projectShowcase: ProjectCaseStudy[] = [
         title: "React Native mobile app",
         description: "iOS and Android launch tailored for the New York market.",
         accent: "bg-primary/10 ring-1 ring-primary/40",
+        icon: "images/icons/react.svg",
       },
       {
         title: "Modular NestJS backend",
         description: "Feature-based modules for matchmaking, billing, and content.",
         accent: "bg-secondary/10 ring-1 ring-secondary/40",
+        icon: "images/icons/nestjs.svg",
       },
       {
         title: "React client dashboards",
         description: "Operations workspace for concierge and partner teams.",
         accent: "bg-success/10 ring-1 ring-success/40",
+        icon: "images/icons/react.svg",
       },
       {
         title: "Amplitude analytics",
@@ -228,6 +127,7 @@ export const projectShowcase: ProjectCaseStudy[] = [
         title: "Firebase Authentication",
         description: "Passwordless, social, and phone sign-in in a single flow.",
         accent: "bg-tealGreen/10 ring-1 ring-tealGreen/40",
+        icon: "images/icons/Firebase.svg",
       },
       {
         title: "Twilio communications",
@@ -238,6 +138,7 @@ export const projectShowcase: ProjectCaseStudy[] = [
         title: "Azure CI/CD delivery",
         description: "GitHub Actions shipping to App Service and Static Web Apps.",
         accent: "bg-midnight_text/10 ring-1 ring-midnight_text/30",
+        icon: "images/icons/Azure.svg",
       },
       {
         title: "Sendbird messaging",
@@ -263,6 +164,7 @@ export const projectShowcase: ProjectCaseStudy[] = [
         title: "Next.js 15 foundation",
         description: "App Router, server components, and streaming layouts for performance.",
         accent: "bg-primary/10 ring-1 ring-primary/40",
+        icon: "images/icons/nextjs.svg",
       },
       {
         title: "Multilingual delivery",
@@ -278,11 +180,13 @@ export const projectShowcase: ProjectCaseStudy[] = [
         title: "PostgreSQL knowledge base",
         description: "Structured career guides and visa information stored with Prisma models.",
         accent: "bg-success/10 ring-1 ring-success/40",
+        icon: "images/icons/postgresql.svg",
       },
       {
         title: "AWS storage buckets",
         description: "Static assets and document uploads distributed via regional S3 buckets.",
         accent: "bg-midnight_text/10 ring-1 ring-midnight_text/30",
+        icon: "images/icons/AWS.svg",
       },
       {
         title: "Neos deployment pipeline",

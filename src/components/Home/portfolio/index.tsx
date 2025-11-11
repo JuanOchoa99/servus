@@ -1,7 +1,9 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import { projectShowcase } from "@/app/api/data";
+import { getImagePrefix } from "@/utils/utils";
 
 const DISPLAY_COUNT = 6;
 const ROTATE_INTERVAL = 5500;
@@ -47,13 +49,13 @@ const Portfolio = () => {
       </div>
 
       <div className="container relative mx-auto lg:max-w-screen-xl px-4 sm:px-6 w-full">
-        <motion.div
+          <motion.div
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: 24 }}
-          transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="grid items-center gap-12 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]"
-        >
+          >
           <div className="max-w-xl">
             <p className="text-muted text-18 sm:text-20 mb-4">
               {project.badge}{" "}
@@ -80,18 +82,31 @@ const Portfolio = () => {
                 <div
                   key={`${highlight.title}-${idx}`}
                   className={`flex h-full min-h-[160px] flex-col justify-between rounded-2xl border border-dark_border/10 bg-dark/60 p-5 text-left transition duration-300 hover:-translate-y-1 hover:shadow-lg ${highlight.accent}`}
-                >
-                  <h4 className="text-white text-18 sm:text-20 font-semibold mb-2">
-                    {highlight.title}
-                  </h4>
+                  >
+                  <div className="flex items-start justify-between gap-3 mb-2">
+                    <h4 className="text-white text-18 sm:text-20 font-semibold">
+                      {highlight.title}
+                    </h4>
+                    {highlight.icon && (
+                      <div className="shrink-0 rounded-full bg-white/10 p-2">
+                        <Image
+                          src={`${getImagePrefix()}${highlight.icon}`}
+                          alt={highlight.title}
+                          width={32}
+                          height={32}
+                          className="h-6 w-6 object-contain"
+                        />
+                      </div>
+                    )}
+                  </div>
                   <p className="text-muted text-opacity-60 text-14 sm:text-16 leading-relaxed">
                     {highlight.description}
                   </p>
-                </div>
-              ))}
+                      </div>
+                ))}
             </motion.div>
           </AnimatePresence>
-        </motion.div>
+          </motion.div>
 
         <div className="mt-10 flex flex-wrap justify-center gap-3">
           {projectShowcase.map((proj, idx) => {
