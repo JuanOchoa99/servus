@@ -54,17 +54,27 @@ const CardSlider = ({
           <div key={index} className="pr-6">
             <div className="px-5 py-6 bg-dark_grey bg-opacity-80 rounded-xl">
               <div className="flex items-center gap-5">
-                <div
-                  className={`${item.background} rounded-full flex items-center justify-center w-16 h-16`}
-                >
-                  <Image
-                    src={`${getImagePrefix()}${item.icon}`}
-                    alt="icon"
-                    width={40}
-                    height={40}
-                    className="w-10 h-10 object-contain"
-                  />
-                </div>
+                {item.icon ? (
+                  <div
+                    className={`${item.background} rounded-full flex items-center justify-center w-16 h-16`}
+                  >
+                    <Image
+                      src={`${getImagePrefix()}${item.icon}`}
+                      alt={`${item.title} logo`}
+                      width={40}
+                      height={40}
+                      className="w-10 h-10 object-contain"
+                    />
+                  </div>
+                ) : (
+                  <div
+                    className={`${item.background} rounded-full flex items-center justify-center w-16 h-16`}
+                  >
+                    <span className="text-white text-16 font-semibold">
+                      {item.short}
+                    </span>
+                  </div>
+                )}
                 <p className="text-white text-xs font-normal ">
                   <span className="text-16 font-bold mr-2">{item.title}</span>
                   {item.short}

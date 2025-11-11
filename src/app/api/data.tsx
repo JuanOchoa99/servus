@@ -122,6 +122,7 @@ export const projectShowcase: ProjectCaseStudy[] = [
         title: "Amplitude analytics",
         description: "Heatmaps and cohorts to surface engagement trends.",
         accent: "bg-warning/10 ring-1 ring-warning/40",
+        icon: "images/icons/amplitude.svg",
       },
       {
         title: "Firebase Authentication",
@@ -133,7 +134,8 @@ export const projectShowcase: ProjectCaseStudy[] = [
         title: "Twilio communications",
         description: "Automated SMS onboarding and support escalations.",
         accent: "bg-error/10 ring-1 ring-error/40",
-      },
+        icon: "images/icons/twilio.svg",
+  },
       {
         title: "Azure CI/CD delivery",
         description: "GitHub Actions shipping to App Service and Static Web Apps.",
@@ -144,6 +146,7 @@ export const projectShowcase: ProjectCaseStudy[] = [
         title: "Sendbird messaging",
         description: "Realtime chat embedded across mobile and web touchpoints.",
         accent: "bg-dark_border/10 ring-1 ring-dark_border/30",
+        icon: "images/icons/sendbird.png",
       },
       {
         title: "Engineering excellence",
@@ -165,8 +168,8 @@ export const projectShowcase: ProjectCaseStudy[] = [
         description: "App Router, server components, and streaming layouts for performance.",
         accent: "bg-primary/10 ring-1 ring-primary/40",
         icon: "images/icons/nextjs.svg",
-      },
-      {
+  },
+  {
         title: "Multilingual delivery",
         description: "English, Spanish, and Portuguese content powered by message catalogs.",
         accent: "bg-secondary/10 ring-1 ring-secondary/40",
@@ -181,8 +184,8 @@ export const projectShowcase: ProjectCaseStudy[] = [
         description: "Structured career guides and visa information stored with Prisma models.",
         accent: "bg-success/10 ring-1 ring-success/40",
         icon: "images/icons/postgresql.svg",
-      },
-      {
+  },
+  {
         title: "AWS storage buckets",
         description: "Static assets and document uploads distributed via regional S3 buckets.",
         accent: "bg-midnight_text/10 ring-1 ring-midnight_text/30",
