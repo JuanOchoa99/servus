@@ -88,13 +88,13 @@ const Portfolio = () => {
                       {highlight.title}
                     </h4>
                     {highlight.icon && (
-                      <div className="shrink-0 rounded-full bg-white/10 p-2">
+                      <div className={`shrink-0 rounded-full bg-white/10 p-2 ${highlight.icon.includes('sendbird') ? 'p-1' : 'p-2'}`}>
                         <Image
                           src={`${getImagePrefix()}${highlight.icon}`}
                           alt={highlight.title}
-                          width={32}
-                          height={32}
-                          className="h-6 w-6 object-contain"
+                          width={highlight.icon.includes('sendbird') ? 40 : 32}
+                          height={highlight.icon.includes('sendbird') ? 40 : 32}
+                          className={highlight.icon.includes('sendbird') ? 'h-8 w-8 object-contain' : 'h-6 w-6 object-contain'}
                         />
                       </div>
                     )}
