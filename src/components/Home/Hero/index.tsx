@@ -55,45 +55,47 @@ const Hero = () => {
 
   return (
     <section
-      className="relative md:pt-40 md:pb-28 py-20 overflow-hidden z-1"
+      className="relative md:pt-40 md:pb-28 pt-40 pb-20 overflow-x-hidden overflow-y-visible z-1"
       id="main-banner"
     >
-      <div className="container mx-auto lg:max-w-screen-xl px-4">
+      <div className="container mx-auto lg:max-w-screen-xl px-4 max-w-full">
         <div className="grid grid-cols-12">
-          <motion.div {...leftAnimation} className="lg:col-span-5 col-span-12">
-            <div className="flex gap-6 items-center lg:justify-start justify-center mb-5 mt-24">
-              <p className="text-white sm:text-28 text-18 mb-2">
+          <motion.div {...leftAnimation} className="lg:col-span-5 col-span-12 md:pl-8 px-4">
+            <div className="flex gap-6 items-center lg:justify-start justify-center mb-4 md:mb-5 md:mt-24 mt-8">
+              <p className="text-white sm:text-28 text-16 mb-2">
                 Your business to another <span className="text-primary">level.</span>
               </p>
             </div>
-            <h1 className="font-medium lg:text-76 md:text-70 text-54 lg:text-start text-center text-white mb-10">
+            <h1 className="font-medium lg:text-76 md:text-70 text-36 md:text-54 lg:text-start text-center text-white mb-6 md:mb-10 leading-tight">
               Development of 
               <span className="text-primary"> mobile</span> applications and 
               <span className="text-primary"> web</span> platforms with the exact functionalities your business needs. 
             </h1>
-            <div className="flex items-center md:justify-start justify-center gap-8">
+            <div className="flex items-center md:justify-start justify-center gap-8 mb-6 md:mb-0">
               <button
-                className="bg-transparent border border-primary rounded-lg text-21 font-medium hover:bg-primary hover:text-darkmode text-primary py-2 px-7"
+                className="bg-transparent border border-primary rounded-lg text-18 md:text-21 font-medium hover:bg-primary hover:text-darkmode text-primary py-2 px-6 md:px-7"
                 onClick={() => setIsSellingOpen(true)}
               >
                 Book a meeting
               </button>
             </div>
-            <div className="flex items-center md:justify-start justify-center gap-12 mt-20">
+            <div className="flex items-center md:justify-start justify-center gap-6 md:gap-12 md:mt-12 mt-8">
               <Link href="#" className="hover:scale-110 duration-300">
                 <Image
                   src={`${getImagePrefix()}images/playstore.png`}
                   alt="Play Store"
                   width={240}
                   height={70}
+                  className="w-32 md:w-auto h-auto"
                 />
               </Link>
               <Link href="#" className="hover:scale-110 duration-300">
                 <Image
-                  src= {`${getImagePrefix()}images/applestore.png`}
+                  src= {`${getImagePrefix()}images/applestore.svg`}
                   alt="App Store"
                   width={240}
                   height={70}
+                  className="w-32 md:w-auto h-auto"
                 />
               </Link>
             </div>
@@ -112,7 +114,7 @@ const Hero = () => {
             </div>
           </motion.div>
         </div>
-        <div className="lg:-mt-16 mt-16 relative z-10">
+        <div className="lg:mt-8 md:mt-12 mt-16 relative z-10">
           <CardSlider items={technologyShowcase} autoplaySpeed={1600} slidesToShow={4} />
         </div>
       </div>
