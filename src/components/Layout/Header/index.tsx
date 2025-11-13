@@ -72,11 +72,11 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 z-40 w-full pb-5 transition-all duration-300 ${
-        sticky ? " shadow-lg bg-darkmode pt-5" : "shadow-none md:pt-14 pt-5"
+      className={`fixed top-0 z-40 w-full pb-3 md:pb-5 transition-all duration-300 ${
+        sticky ? " shadow-lg bg-darkmode pt-3 md:pt-5" : "shadow-none md:pt-14 pt-3"
       }`}
     >
-      <div className="lg:py-0 py-2">
+      <div className="lg:py-0 py-1 md:py-2">
         <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md flex items-center lg:justify-between justify-center px-4 relative">
           <Logo />
           <nav className="hidden lg:flex flex-grow items-center gap-8 justify-center">
