@@ -1,18 +1,18 @@
-# Crypgo – Free Tailwind CSS & Next.js Website Template
+# Servus – Free Tailwind CSS & Next.js Website Template
 
 #### Preview
 
- - [Demo](https://themewagon.github.io/Crypgo/)
+ - [Demo](https://themewagon.github.io/Servus/)
 
 #### Download
- - [Download from ThemeWagon]( https://themewagon.com/themes/crypgo)
+ - [Download from ThemeWagon]( https://themewagon.com/themes/servus)
  
  
 ## Getting Started
 
 1. Clone from Github 
 ```
-git clone https://github.com/themewagon/Crypgo.git
+git clone https://github.com/themewagon/Servus.git
 ```
 2. Install Dependencies
 ```
