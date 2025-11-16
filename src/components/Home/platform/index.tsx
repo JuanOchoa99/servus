@@ -4,7 +4,7 @@ const Platform = () => {
   return (
     <section className="md:pt-44 sm:pt-24 pt-12 relative z-1">
       <div className="container mx-auto lg:max-w-screen-xl px-4">
-        <div className="bg-section bg-opacity-10 px-16 py-14 rounded-3xl border-2 border-opacity-20 border-section grid grid-cols-12 items-center before:content-[''] before:absolute relative before:w-96 before:h-64 before:bg-start before:bg-no-repeat before:-bottom-11 overflow-hidden lg:before:right-48 before:-z-1 before:opacity-10 ">
+        <div className="bg-section bg-opacity-10 px-16 py-14 rounded-3xl border-2 border-opacity-20 border-section grid grid-cols-12 items-center before:content-[''] before:absolute relative before:w-96 before:h-64 before:logo-v before:bg-no-repeat before:-bottom-11 overflow-hidden lg:before:right-48 before:-z-1 before:opacity-10 ">
           <div className="lg:col-span-8 col-span-12">
             <h2 className="text-white sm:text-40 text-30 mb-6">
               Powered by the Cryp<span className="text-primary">go</span>{" "}
