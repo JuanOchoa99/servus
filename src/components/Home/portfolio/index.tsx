@@ -55,7 +55,7 @@ const Portfolio = () => {
 
   return (
     <section
-      className="relative py-20 sm:py-24 md:py-28 xl:min-h-screen xl:flex xl:items-center"
+      className="relative py-20 sm:py-24 md:py-28 xl:py-28"
       id="portfolio"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-dark/80 via-deepSlate/70 to-dark/80" />
