@@ -5,15 +5,31 @@ import Image from "next/image";
 import { projectShowcase } from "@/app/api/data";
 import { getImagePrefix } from "@/utils/utils";
 
-const DISPLAY_COUNT = 6;
+const DISPLAY_COUNT_DESKTOP = 6;
+const DISPLAY_COUNT_MOBILE = 3;
 const ROTATE_INTERVAL = 5500;
-const ROTATE_STEP = 3;
+const ROTATE_STEP_DESKTOP = 3;
+const ROTATE_STEP_MOBILE = 1;
 
 const Portfolio = () => {
   const [projectIndex, setProjectIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const project = projectShowcase[projectIndex];
   const highlightCount = project.highlights.length;
-  const visibleCount = Math.min(DISPLAY_COUNT, highlightCount);
+  
+  // Detectar si es mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const displayCount = isMobile ? DISPLAY_COUNT_MOBILE : DISPLAY_COUNT_DESKTOP;
+  const rotateStep = isMobile ? ROTATE_STEP_MOBILE : ROTATE_STEP_DESKTOP;
+  const visibleCount = Math.min(displayCount, highlightCount);
   const [startIndex, setStartIndex] = useState(0);
 
   useEffect(() => {
@@ -25,10 +41,10 @@ const Portfolio = () => {
       return;
     }
     const timer = setInterval(() => {
-      setStartIndex((prev) => (prev + ROTATE_STEP) % highlightCount);
+      setStartIndex((prev) => (prev + rotateStep) % highlightCount);
     }, ROTATE_INTERVAL);
     return () => clearInterval(timer);
-  }, [highlightCount, visibleCount]);
+  }, [highlightCount, visibleCount, rotateStep]);
 
   const currentHighlights = useMemo(() => {
     return Array.from({ length: visibleCount }, (_, idx) => {
@@ -39,7 +55,7 @@ const Portfolio = () => {
 
   return (
     <section
-      className="relative min-h-screen flex items-center py-20 sm:py-24 md:py-28"
+      className="relative py-20 sm:py-24 md:py-28 xl:py-28"
       id="portfolio"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-dark/80 via-deepSlate/70 to-dark/80" />
@@ -88,13 +104,13 @@ const Portfolio = () => {
                       {highlight.title}
                     </h4>
                     {highlight.icon && (
-                      <div className="shrink-0 rounded-full bg-white/10 p-2">
+                      <div className={`shrink-0 rounded-full bg-white/10 p-2 ${highlight.icon.includes('sendbird') ? 'p-1' : 'p-2'}`}>
                         <Image
                           src={`${getImagePrefix()}${highlight.icon}`}
                           alt={highlight.title}
-                          width={32}
-                          height={32}
-                          className="h-6 w-6 object-contain"
+                          width={highlight.icon.includes('sendbird') ? 40 : 32}
+                          height={highlight.icon.includes('sendbird') ? 40 : 32}
+                          className={highlight.icon.includes('sendbird') ? 'h-8 w-8 object-contain' : 'h-6 w-6 object-contain'}
                         />
                       </div>
                     )}

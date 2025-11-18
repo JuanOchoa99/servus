@@ -4,6 +4,11 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 section{
@@ -40,4 +45,28 @@ section{
 
 .blog-details h3 {
   @apply mb-6 text-2xl font-bold dark:text-white sm:text-[28px] sm:leading-[40px];
+}
+
+.technology-slider .slick-slide {
+  height: auto;
+}
+
+.technology-slider .slick-slide > div {
+  height: 100%;
+  display: flex;
+}
+
+.technology-slider .slick-track {
+  display: flex;
+  align-items: stretch;
+}
+
+.technology-slider .slick-list {
+  margin: 0 -8px;
+  overflow: hidden;
+}
+
+.technology-slider .slick-slide > div > div {
+  width: 100%;
+  height: 100%;
 }

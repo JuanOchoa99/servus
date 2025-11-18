@@ -72,12 +72,12 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 z-40 w-full pb-5 transition-all duration-300 ${
-        sticky ? " shadow-lg bg-darkmode pt-5" : "shadow-none md:pt-14 pt-5"
+      className={`fixed top-0 z-40 w-full pb-3 md:pb-5 transition-all duration-300 ${
+        sticky ? " shadow-lg bg-darkmode pt-3 md:pt-5" : "shadow-none md:pt-14 pt-3"
       }`}
     >
-      <div className="lg:py-0 py-2">
-        <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md flex items-center justify-between px-4">
+      <div className="lg:py-0 py-1 md:py-2">
+        <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md flex items-center lg:justify-between justify-center px-4 relative">
           <Logo />
           <nav className="hidden lg:flex flex-grow items-center gap-8 justify-end">
             {headerData.map((item, index) => (
@@ -170,7 +170,7 @@ const Header: React.FC = () => {
             )} */}
             <button
               onClick={() => setNavbarOpen(!navbarOpen)}
-              className="block lg:hidden p-2 rounded-lg"
+              className="block lg:hidden p-2 rounded-lg absolute right-4"
               aria-label="Toggle mobile menu"
             >
               <span className="block w-6 h-0.5 bg-white"></span>
@@ -190,7 +190,16 @@ const Header: React.FC = () => {
         >
           <div className="flex items-center justify-between p-4">
             <h2 className="text-lg font-bold text-midnight_text dark:text-midnight_text">
-              <Logo />
+              <Link href="/">
+                <Image
+                  src={`${getImagePrefix()}images/logo/logo.png`}
+                  alt="logo"
+                  width={160}
+                  height={50}
+                  style={{ width: "200px", height: "auto" }}
+                  quality={100}
+                />
+              </Link>
             </h2>
 
             {/*  */}

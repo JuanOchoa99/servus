@@ -34,58 +34,66 @@ const CardSlider = ({
         },
       },
       {
-        breakpoint: 992,
+        breakpoint: 768,
         settings: {
-          slidesToShow: Math.min(slidesToShow, 2),
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
         },
       },
       {
         breakpoint: 1280,
         settings: {
-          slidesToShow,
+          slidesToShow: 4,
         },
       },
     ],
   };
   return (
-    <div>
-      <Slider {...settings}>
+    <div className="technology-slider">
+      <Slider {...settings} className="technology-cards-slider">
         {items.map((item, index) => (
-          <div key={index} className="pr-6">
-            <div className="px-5 py-6 bg-dark_grey bg-opacity-80 rounded-xl">
-              <div className="flex items-center gap-5">
+          <div key={index} className="px-2">
+            <div className="px-5 py-6 bg-dark_grey bg-opacity-80 rounded-xl h-full min-h-[160px] flex flex-col">
+              <div className="flex items-start gap-4 mb-6">
                 {item.icon ? (
                   <div
-                    className={`${item.background} rounded-full flex items-center justify-center w-16 h-16`}
+                    className={`${item.background} rounded-full flex items-center justify-center w-16 h-16 flex-shrink-0`}
                   >
                     <Image
                       src={`${getImagePrefix()}${item.icon}`}
                       alt={`${item.title} logo`}
                       width={40}
                       height={40}
-                      className="w-10 h-10 object-contain"
+                      className="w-10 h-10 object-contain p-1"
                     />
                   </div>
                 ) : (
                   <div
-                    className={`${item.background} rounded-full flex items-center justify-center w-16 h-16`}
+                    className={`${item.background} rounded-full flex items-center justify-center w-16 h-16 flex-shrink-0`}
                   >
                     <span className="text-white text-16 font-semibold">
                       {item.short}
                     </span>
                   </div>
                 )}
-                <p className="text-white text-xs font-normal ">
-                  <span className="text-16 font-bold mr-2">{item.title}</span>
-                  {item.short}
-                </p>
-              </div>
-              <div className="flex items-center mt-7">
-                <div>
-                  <p className="text-16 font-bold text-white mb-0 leading-none">
-                    {item.description}
+                <div className="flex-1 min-w-0">
+                  <p className="text-white text-16 font-bold leading-tight mb-1">
+                    {item.title}
+                  </p>
+                  <p className="text-white text-14 opacity-70 leading-tight">
+                    {item.short}
                   </p>
                 </div>
+              </div>
+              <div className="mt-auto">
+                <p className="text-16 font-bold text-white leading-tight">
+                  {item.description}
+                </p>
               </div>
             </div>
           </div>
