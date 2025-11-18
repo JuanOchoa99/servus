@@ -40,7 +40,7 @@ const Work = () => {
   ];
 
   return (
-    <section className="md:pt-28" id="work">
+    <section className="md:pt-14" id="work">
       <div className="container mx-auto lg:max-w-screen-xl px-4">
         <div ref={ref} className="grid grid-cols-12 items-center">
           <motion.div

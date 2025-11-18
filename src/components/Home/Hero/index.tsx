@@ -76,7 +76,7 @@ const Hero = () => {
                 className="bg-transparent border border-primary rounded-lg text-18 md:text-21 font-medium hover:bg-primary hover:text-darkmode text-primary py-2 px-6 md:px-7"
                 onClick={() => setIsSellingOpen(true)}
               >
-                Book a meeting
+                Contact us
               </button>
             </div>
             <div className="flex items-center md:justify-start justify-center gap-6 md:gap-12 md:mt-12 mt-8">
