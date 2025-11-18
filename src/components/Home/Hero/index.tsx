@@ -55,7 +55,7 @@ const Hero = () => {
 
   return (
     <section
-      className="relative md:pt-40 md:pb-28 pt-40 pb-20 overflow-x-hidden overflow-y-visible z-1"
+      className="relative md:pt-40 md:pb-5 pt-40 pb-20 overflow-x-hidden overflow-y-visible z-1"
       id="main-banner"
     >
       <div className="container mx-auto lg:max-w-screen-xl px-4 max-w-full">
