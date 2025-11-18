@@ -55,7 +55,7 @@ const Hero = () => {
 
   return (
     <section
-      className="relative md:pt-40 md:pb-28 py-20 overflow-hidden z-1"
+      className="relative md:pt-40 md:gap-6 py-14 overflow-hidden z-1"
       id="main-banner"
     >
       <div className="container mx-auto lg:max-w-screen-xl px-4">
@@ -76,7 +76,7 @@ const Hero = () => {
                 className="bg-transparent border border-primary rounded-lg text-21 font-medium hover:bg-primary hover:text-darkmode text-primary py-2 px-7"
                 onClick={() => setIsSellingOpen(true)}
               >
-                Book a meeting
+                Contact us
               </button>
             </div>
             <div className="flex items-center md:justify-start justify-center gap-12 mt-20">
