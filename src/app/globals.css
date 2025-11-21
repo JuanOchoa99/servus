@@ -71,6 +71,24 @@ section{
   height: 100%;
 }
 
+/* Custom scrollbar for modals */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(160, 32, 240, 0.3);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(160, 32, 240, 0.5);
+}
+
 /* WhatsApp pulse animation */
 @keyframes whatsapp-heartbeat {
   0% {
