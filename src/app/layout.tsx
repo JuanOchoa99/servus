@@ -5,6 +5,7 @@ import Footer from "@/components/Layout/Footer";
 import { ThemeProvider } from "next-themes";
 import ScrollToTop from "@/components/ScrollToTop";
 import Aoscompo from "@/utils/aos";
+import FloatingWhatsApp from "@/components/SharedComponent/FloatingWhatsApp";
 const font = DM_Sans({ subsets: ["latin"] });
 
 export default function RootLayout({
@@ -24,6 +25,7 @@ export default function RootLayout({
             <Header />
             {children}
             <Footer />
+            <FloatingWhatsApp />
           </Aoscompo>
           <ScrollToTop />
         </ThemeProvider>
