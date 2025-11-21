@@ -1,6 +1,20 @@
 # Configuración en Vercel - Guía Paso a Paso
 
+## 🎯 ¿Cómo Funciona Vercel?
+
+**Vercel despliega automáticamente** cada vez que haces push a tu repositorio de GitHub. No necesitas configurar GitHub Actions manualmente. Una vez que conectes tu repositorio desde el dashboard de Vercel, todo se hace automáticamente.
+
 ## ✅ Pasos para Configurar tu Proyecto en Vercel
+
+### 0. **Conectar Repositorio de GitHub (Si aún no lo has hecho)**
+
+1. Ve a [Vercel Dashboard](https://vercel.com/dashboard)
+2. Haz clic en **"Add New..."** → **"Project"**
+3. Selecciona tu repositorio de GitHub (`JuanOchoa99/servus`)
+4. Vercel detectará automáticamente que es un proyecto Next.js
+5. Haz clic en **"Deploy"**
+
+Vercel desplegará automáticamente cada push a `main` ✨
 
 ### 1. **Configurar Variables de Entorno en Vercel**
 
@@ -85,8 +99,22 @@ El `vercel.json` incluye un rewrite para manejar ambas rutas.
 
 ## 💡 Tips
 
-- Vercel despliega automáticamente cada push a la rama `main`
-- Puedes configurar branches de preview para PRs
-- Los logs de las funciones serverless están disponibles en el dashboard
-- Vercel tiene un límite generoso de requests en el plan Hobby (gratis)
+- ✅ **Vercel despliega automáticamente** cada push a la rama `main` - No necesitas GitHub Actions
+- ✅ Puedes configurar branches de preview para PRs (automático)
+- ✅ Los logs de las funciones serverless están disponibles en el dashboard
+- ✅ Vercel tiene un límite generoso de requests en el plan Hobby (gratis)
+- ⚠️ **El workflow `.github/workflows/deploy.yml` es OPCIONAL** - Vercel maneja todo automáticamente
+
+## 🤔 ¿Necesito el Workflow de GitHub Actions?
+
+**Respuesta corta: NO.** 
+
+El workflow `.github/workflows/deploy.yml` está deshabilitado por defecto porque:
+- Vercel despliega automáticamente cuando conectas tu repositorio
+- Es más simple y confiable
+- No necesitas configurar tokens adicionales
+
+**Solo necesitas el workflow si:**
+- Quieres desplegar desde GitHub Actions en lugar de Vercel automático
+- En ese caso, agrega `VERCEL_TOKEN` a GitHub Secrets y descomenta las líneas en el workflow
 
