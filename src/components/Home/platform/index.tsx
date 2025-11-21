@@ -205,6 +205,17 @@ const Platform = () => {
         }),
       });
 
+      // Check if response is JSON before parsing
+      const contentType = eventsResponse.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        // API route not available (likely static export)
+        console.warn('Calendar API not available. Using static export mode.');
+        setBusySlots([]);
+        const allDays = generateAllDays();
+        setAvailableDays(allDays.slice(0, 8));
+        return;
+      }
+
       if (!eventsResponse.ok) {
         const errorData = await eventsResponse.json().catch(() => ({}));
         // Si hay error de configuración, solo loguear (no mostrar al usuario)
@@ -345,6 +356,13 @@ const Platform = () => {
           attendees: [userEmail, 'ochoaortizj@gmail.com', 'moosescn20@gmail.com'],
         }),
       });
+
+      // Check if response is JSON before parsing
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        const text = await response.text();
+        throw new Error(`API endpoint returned HTML instead of JSON. This usually means the API route is not available in production. Response: ${text.substring(0, 100)}...`);
+      }
 
       const data = await response.json();
 

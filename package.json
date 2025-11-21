@@ -9,7 +9,7 @@
     "lint": "next lint",
     "predeploy": "npm run build",
     "deploy": "touch out/.nojekyll && gh-pages -d out --dotfiles",
-    "serve:prod": "npm run build && node server-prod.js",
+    "serve:prod": "npm run build && NODE_ENV=production node server-prod.js",
     "check:fonts": "node check-fonts-prod.js"
   },
   "dependencies": {
