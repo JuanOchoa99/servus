@@ -6,8 +6,7 @@ const nextConfig = {
   // Use the repository name as basePath when deploying to GitHub Pages
   basePath: basePath,
   assetPrefix: isProd ? "/servus/" : "",
-  // Removed output: "export" to support API routes
-  // Use static export only if you don't need API routes
+  output: "export",
   images: {
     unoptimized: true,
   },
