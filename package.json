@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "predeploy": "npm run build",
-    "deploy": "mkdir -p out && touch out/.nojekyll && gh-pages -d out --dotfiles",
-    "deploy:static": "ENABLE_STATIC_EXPORT=true npm run build && mkdir -p out && touch out/.nojekyll && gh-pages -d out --dotfiles",
+    "deploy": "touch out/.nojekyll && gh-pages -d out --dotfiles",
     "serve:prod": "npm run build && NODE_ENV=production node server-prod.js",
     "check:fonts": "node check-fonts-prod.js"
   },

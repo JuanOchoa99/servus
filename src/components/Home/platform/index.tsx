@@ -1,7 +1,6 @@
 "use client";
 import { useState, useRef, useCallback, useEffect } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { getApiUrl } from "@/utils/utils";
 
 interface AvailableDay {
   date: Date;
@@ -195,8 +194,7 @@ const Platform = () => {
       endDate.setDate(today.getDate() + 14);
       
       // Obtener eventos completos para verificar cancelados (sin bloquear UI)
-      const apiUrl = getApiUrl();
-      const eventsResponse = await fetch(`${apiUrl}/api/calendar/get-events`, {
+      const eventsResponse = await fetch('/api/calendar/get-events', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -347,8 +345,7 @@ const Platform = () => {
 
     try {
       // Crear el evento automáticamente en Google Calendar
-      const apiUrl = getApiUrl();
-      const response = await fetch(`${apiUrl}/api/calendar/create-event`, {
+      const response = await fetch('/api/calendar/create-event', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
