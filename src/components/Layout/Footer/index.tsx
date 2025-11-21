@@ -42,9 +42,6 @@ const Footer: FC = () => {
             <h3 className="text-white text-24 font-medium sm:mt-20 mt-12">
               2025 Copright | Servus
             </h3>
-            <h3 className="text-white text-24 font-medium sm:mt-20 mt-12">
-              Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
-            </h3>
           </div>
           <div className="lg:col-span-2 md:col-span-3 col-span-6">
             <h4 className="text-white mb-4 font-medium text-24">Links</h4>
@@ -60,43 +57,6 @@ const Footer: FC = () => {
                 </li>
               ))}
             </ul>
-          </div>
-          <div className="lg:col-span-2 md:col-span-3 col-span-6">
-            <h4 className="text-white mb-4 font-medium text-24">Information</h4>
-            <ul>
-              {footerlabels.map((item, index) => (
-                <li key={index} className="pb-4">
-                  <Link
-                    href={item.herf}
-                    className="text-white hover:text-primary text-17"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="lg:col-span-4 md:col-span-4 col-span-6">
-            <h3 className="text-white text-24 font-medium">Subscribe</h3>
-            <p className="text-muted text-opacity-60 text-18 mt-5">
-              Subscribe to get the latest
-              <br /> news form us
-            </p>
-            <div className="relative lg:w-80%">
-              <input
-                type="email"
-                name="mail"
-                id="mail"
-                placeholder="Enter Email"
-                className="bg-transparent border border-dark_border border-opacity-60 py-4 text-white rounded-lg w-full mt-6 px-6"
-              />
-              <Icon
-                icon="tabler:send"
-                width="24"
-                height="24"
-                className="text-primary absolute right-7 bottom-4"
-              />
-            </div>
           </div>
         </div>
       </div>
