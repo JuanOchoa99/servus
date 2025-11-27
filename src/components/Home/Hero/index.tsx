@@ -63,20 +63,20 @@ const Hero = () => {
           <motion.div {...leftAnimation} className="lg:col-span-5 col-span-12 md:pl-8 px-4">
             <div className="flex gap-6 items-center lg:justify-start justify-center mb-4 md:mb-5 md:mt-24 mt-8">
               <p className="text-white sm:text-28 text-16 mb-2">
-                Your business to another <span className="text-primary">level.</span>
+                Build High-Quality Software with a Nearshore Team You Can <span className="text-primary">Trust.</span>
               </p>
             </div>
             <h1 className="font-medium lg:text-76 md:text-70 text-36 md:text-54 lg:text-start text-center text-white mb-6 md:mb-10 leading-tight">
-              Development of 
-              <span className="text-primary"> mobile</span> applications and 
-              <span className="text-primary"> web</span> platforms with the exact functionalities your business needs. 
+              We design and 
+              <span className="text-primary"> develop</span> custom<br className="md:hidden" /> web and 
+              <span className="text-primary"> mobile</span><br className="md:hidden" /> applications with U.S-level<br className="md:hidden" /> quality—at a fraction of the cost. 
             </h1>
             <div className="flex items-center md:justify-start justify-center gap-8 mb-6 md:mb-0">
               <button
-                className="bg-transparent border border-primary rounded-lg text-18 md:text-21 font-medium hover:bg-primary hover:text-darkmode text-primary py-2 px-6 md:px-7"
+                className="text-darkmode bg-primary border border-primary rounded-lg text-18 md:text-21 font-medium hover:bg-transparent hover:text-primary transition-colors py-2 px-6 md:px-7"
                 onClick={() => setIsSellingOpen(true)}
               >
-                Contact us
+                Book a 15-min Call
               </button>
             </div>
             <div className="flex items-center md:justify-start justify-center gap-6 md:gap-12 md:mt-12 mt-8">
