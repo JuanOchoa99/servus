@@ -68,8 +68,8 @@ const Hero = () => {
             </div>
             <h1 className="font-medium lg:text-76 md:text-70 text-36 md:text-54 lg:text-start text-center text-white mb-6 md:mb-10 leading-tight">
               We design and 
-              <span className="text-primary"> develop</span> custom web and 
-              <span className="text-primary"> mobile</span> applications with U.S-level quality—at a fraction of the cost. 
+              <span className="text-primary"> develop</span> custom<br className="md:hidden" /> web and 
+              <span className="text-primary"> mobile</span><br className="md:hidden" /> applications with U.S-level<br className="md:hidden" /> quality—at a fraction of the cost. 
             </h1>
             <div className="flex items-center md:justify-start justify-center gap-8 mb-6 md:mb-0">
               <button
