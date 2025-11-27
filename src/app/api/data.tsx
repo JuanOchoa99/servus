@@ -280,7 +280,7 @@ export const timelineData: {
   },
 ];
 
-export const CryptoData: { name: string; price: number }[] = [
+export const CryptoData: { name: string; price: number }[] = [ // TODO: Remove this and use the actual data from the API
   { name: "Bitcoin BTC/USD", price: 67646.84 },
   { name: "Ethereum ETH/USD", price: 2515.93 },
   { name: "Bitcoin Cash BTC/USD", price: 366.96 },
