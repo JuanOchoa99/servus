@@ -111,6 +111,7 @@ const Portfolio = () => {
                           width={highlight.icon.includes('sendbird') ? 40 : 32}
                           height={highlight.icon.includes('sendbird') ? 40 : 32}
                           className={highlight.icon.includes('sendbird') ? 'h-8 w-8 object-contain' : 'h-6 w-6 object-contain'}
+                          loading="lazy"
                         />
                       </div>
                     )}

@@ -62,6 +62,7 @@ const Work = () => {
                       alt={`${service.text} icon`}
                       width={40}
                       height={40}
+                      loading="lazy"
                     />
                   </div>
                   <p className="text-24 text-muted">{service.text}</p>
@@ -77,6 +78,7 @@ const Work = () => {
                 width={600}
                 height={425}
                 className="lg:w-full"
+                loading="lazy"
               />
             </div>
           </motion.div>

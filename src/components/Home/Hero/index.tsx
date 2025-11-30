@@ -4,7 +4,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import BuyCrypto from "./buy-form";
 import SellCrypto from "./sell-form";
-import CardSlider from "./slider";
+import dynamic from "next/dynamic";
+const CardSlider = dynamic(() => import("./slider"), { ssr: false, loading: () => <div className="h-24" /> });
 import { technologyShowcase } from "@/app/api/data";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
@@ -87,6 +88,7 @@ const Hero = () => {
                   width={240}
                   height={70}
                   className="w-32 md:w-auto h-auto"
+                  loading="lazy"
                 />
               </Link>
               <Link href="#" className="hover:scale-110 duration-300">
@@ -96,6 +98,7 @@ const Hero = () => {
                   width={240}
                   height={70}
                   className="w-32 md:w-auto h-auto"
+                  loading="lazy"
                 />
               </Link>
             </div>
@@ -110,6 +113,7 @@ const Hero = () => {
                 alt="Banner"
                 width={1150}
                 height={1150}
+                loading="eager"
               />
             </div>
           </motion.div>
