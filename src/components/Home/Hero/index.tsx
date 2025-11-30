@@ -108,13 +108,21 @@ const Hero = () => {
             className="col-span-7 lg:block hidden"
           >
             <div className="ml-20 -mr-64">
-              <Image
-                src= {`${getImagePrefix()}images/principal.svg`}
-                alt="Banner"
-                width={1150}
-                height={1150}
-                loading="eager"
-              />
+              <picture>
+                <source
+                  type="image/webp"
+                  srcSet={`${getImagePrefix()}images/principal@1150.webp 1150w, ${getImagePrefix()}images/principal@1150.webp 600w`}
+                  sizes="(min-width: 1024px) 1150px, 100vw"
+                />
+                <img
+                  src={`${getImagePrefix()}images/principal.min.svg`}
+                  alt="Banner"
+                  width={1150}
+                  height={1150}
+                  loading="eager"
+                  className="w-full h-auto"
+                />
+              </picture>
             </div>
           </motion.div>
         </div>

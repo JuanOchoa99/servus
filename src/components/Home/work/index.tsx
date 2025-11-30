@@ -34,7 +34,7 @@ const Work = () => {
       text: "Affordable and negotiable rates",
     },
     { 
-      icon: "images/icons/icon-time.png",
+      icon: "images/icons/icon-time@40.webp",
       text: "Timely completion",
     },
   ];
@@ -72,13 +72,15 @@ const Work = () => {
           </motion.div>
           <motion.div {...TopAnimation} className="lg:col-span-5 col-span-12">
             <div className="2xl:-mr-40 mt-9 flex justify-center">
-              <Image
-                src= {`${getImagePrefix()}images/work/image.png`}
+              <img
+                src={`${getImagePrefix()}images/work/image@600.webp`}
+                srcSet={`${getImagePrefix()}images/work/image@600.webp 600w, ${getImagePrefix()}images/work/image@1200.webp 1200w`}
+                sizes="(min-width: 1024px) 600px, 100vw"
                 alt="Work showcase image"
-                width={600}
-                height={425}
                 className="lg:w-full"
                 loading="lazy"
+                width={600}
+                height={425}
               />
             </div>
           </motion.div>
