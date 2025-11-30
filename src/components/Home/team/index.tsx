@@ -27,15 +27,6 @@ const Team = () => {
     },
     {
       id: 3,
-      name: "María Paula Ochoa",
-      role: "UI/UX & Frontend Dev",
-      description: "5+ years | React, TypeScript | Design systems expert",
-      gradient: "from-emerald-950/50 via-emerald-900/40 to-emerald-950/50",
-      roleColor: "text-emerald-400",
-      image: null, // Placeholder
-    },
-    {
-      id: 4,
       name: "Moises Carrillo",
       role: "DevOps & Cloud",
       description: "AWS, Docker, K8s | Infrastructure optimization | 40% cost reduction",
@@ -97,8 +88,8 @@ const Team = () => {
           viewport={{ once: true }}
           className="relative z-10"
         >
-          {/* Mobile Carousel (hidden on md and up) */}
-          <div className="md:hidden flex justify-center pt-4">
+          {/* Mobile/Tablet Carousel (hidden on lg and up) */}
+          <div className="lg:hidden flex justify-center pt-4">
             <div className="w-full max-w-[21rem]">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -201,8 +192,8 @@ const Team = () => {
             </div>
           </div>
 
-          {/* Carousel Indicators - Mobile only */}
-          <div className="md:hidden flex justify-center gap-2 mt-8">
+          {/* Carousel Indicators - Mobile/Tablet only */}
+          <div className="lg:hidden flex justify-center gap-2 mt-8">
             {teamMembers.map((_, index) => (
               <button
                 key={index}
@@ -217,8 +208,8 @@ const Team = () => {
             ))}
           </div>
 
-          {/* Desktop Grid (hidden on mobile, shown on md and up) */}
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 pt-4">
+          {/* Desktop Grid (hidden on mobile/tablet, shown on lg and up) */}
+          <div className="hidden lg:grid lg:grid-cols-3 gap-6 pt-4 max-w-5xl mx-auto">
             {teamMembers.map((member, index) => (
               <motion.div
                 key={member.id}
