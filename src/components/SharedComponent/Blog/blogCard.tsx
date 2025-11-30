@@ -13,7 +13,7 @@ const BlogCard = ({ blog }: { blog: Blog }) => {
                 <div className="overflow-hidden rounded-lg">
                     <Image 
                         src= {`${getImagePrefix()}${coverImage}`}
-                        alt="image"
+                        alt={`${title} cover image`}
                         width={300}
                         height={250}
                         className="group-hover:scale-110 duration-300"

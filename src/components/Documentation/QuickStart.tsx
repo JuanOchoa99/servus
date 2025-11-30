@@ -4,7 +4,7 @@ export const QuickStart = () => {
       <h3 className=" text-white text-2xl font-semibold mt-8">Quick Start</h3>
       <div className="p-6 rounded-md border mt-6 border-dark_border border-opacity-60">
         <h6 className="text-white text-lg font-medium">1. Requirements</h6>
-        <p className="text-base font-medium text-muted text-opacity-60">
+        <p className="text-base font-medium text-muted">
           Before proceeding, you need to have the latest stable{" "}
           <a href="https://nodejs.org/" className="text-primary">
             node.js
@@ -13,14 +13,14 @@ export const QuickStart = () => {
         <h6 className="mt-4 mb-2 text-white font-medium text-base">
           Recommended environment:
         </h6>
-        <ul className="list-disc text-muted text-opacity-60 ps-6">
+        <ul className="list-disc text-muted ps-6">
           <li>node js 20+</li>
           <li>npm js 10+</li>
         </ul>
       </div>
       <div className="p-6 rounded-md border mt-6 border-dark_border border-opacity-60">
         <h6 className="text-white text-lg font-medium">2. Install</h6>
-        <p className="text-base font-medium text-muted text-opacity-60">
+        <p className="text-base font-medium text-muted">
           Open package folder and install its dependencies. We recommanded yarn
           or npm.{" "}
         </p>
@@ -45,14 +45,14 @@ export const QuickStart = () => {
       </div>
       <div className="p-6 rounded-md border mt-6 border-dark_border border-opacity-60">
         <h6 className="text-white text-lg font-medium">3. Start</h6>
-        <p className="text-base font-medium text-muted text-opacity-60 mb-4">
+        <p className="text-base font-medium text-muted mb-4">
           Once npm install is done now you an run the app.
         </p>
 
         <div className="py-4 px-3 rounded-md bg-dark_grey">
           <p className="text-sm text-gray-400">npm run dev or yarn run dev</p>
         </div>
-        <p className="text-base font-medium text-muted text-opacity-60 my-4">
+        <p className="text-base font-medium text-muted my-4">
           This command will start a local webserver{" "}
           <span className="dark:text-white">http://localhost:3000:</span>
         </p>
@@ -71,14 +71,14 @@ export const QuickStart = () => {
         <h6 className="text-white text-lg font-medium">
           4. Build / Deployment
         </h6>
-        <p className="text-base font-medium text-muted text-opacity-60 mb-4">
+        <p className="text-base font-medium text-muted mb-4">
           After adding url run below command for build a app.
         </p>
 
         <div className="py-4 px-3 rounded-md bg-dark_grey">
           <p className="text-sm text-gray-400">npm run build or yarn build</p>
         </div>
-        <p className="text-base font-medium text-muted text-opacity-60 mt-6">
+        <p className="text-base font-medium text-muted mt-6">
           Finally, Your webiste is ready to be deployed.🥳
         </p>
       </div>

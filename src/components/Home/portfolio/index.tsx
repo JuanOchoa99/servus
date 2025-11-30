@@ -116,7 +116,7 @@ const Portfolio = () => {
                       </div>
                     )}
                   </div>
-                  <p className="text-muted text-opacity-60 text-14 sm:text-16 leading-relaxed">
+                  <p className="text-muted text-14 sm:text-16 leading-relaxed">
                     {highlight.description}
                   </p>
                       </div>

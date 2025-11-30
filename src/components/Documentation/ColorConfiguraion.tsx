@@ -3,7 +3,7 @@ export const ColorConfiguration = () => {
     <>
       <h3 className=" text-xl font-semibold mt-8 text-white">Colors</h3>
       <div className="p-6 rounded-md border mt-4 border-dark_border border-opacity-60">
-        <p className="text-base font-medium text-muted text-opacity-60">
+        <p className="text-base font-medium text-muted">
           <span className="font-semibold text-lg text-white">
             1. Override Colors
           </span>{" "}
@@ -35,7 +35,7 @@ export const ColorConfiguration = () => {
         </div>
       </div>
       <div className="p-6 rounded-md border mt-4 border-dark_border border-opacity-60">
-        <p className="text-base font-medium text-muted text-opacity-60">
+        <p className="text-base font-medium text-muted">
           <span className="font-semibold text-lg text-white">
             2. Override Theme Colors
           </span>{" "}

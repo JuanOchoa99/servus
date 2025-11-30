@@ -3,7 +3,7 @@ export const TypographyConfiguration = () => {
     <>
       <h3 className="text-xl font-semibold mt-8 text-white">Typography</h3>
       <div className="p-6 rounded-md border mt-4 border-dark_border border-opacity-60">
-        <p className="text-base font-medium text-muted text-opacity-60">
+        <p className="text-base font-medium text-muted">
           1. Change Font family over here :{" "}
           <span className="font-semibold text-base">src/app/layout.tsx</span>{" "}
         </p>

@@ -104,7 +104,7 @@ export const projectShowcase: ProjectCaseStudy[] = [
         title: "React Native mobile app",
         description: "iOS and Android launch tailored for the New York market.",
         accent: "bg-primary/10 ring-1 ring-primary/40",
-        icon: "images/icons/react.svg",
+        icon: "images/icons/React.svg",
       },
       {
         title: "Modular NestJS backend",
@@ -116,7 +116,7 @@ export const projectShowcase: ProjectCaseStudy[] = [
         title: "React client dashboards",
         description: "Operations workspace for concierge and partner teams.",
         accent: "bg-success/10 ring-1 ring-success/40",
-        icon: "images/icons/react.svg",
+        icon: "images/icons/React.svg",
       },
       {
         title: "Amplitude analytics",

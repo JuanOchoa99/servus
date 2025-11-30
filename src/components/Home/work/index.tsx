@@ -74,7 +74,7 @@ const Work = () => {
             <div className="2xl:-mr-40 mt-9 flex justify-center">
               <Image
                 src= {`${getImagePrefix()}images/work/image.png`}
-                alt="image"
+                alt="Work showcase image"
                 width={600}
                 height={425}
                 className="lg:w-full"

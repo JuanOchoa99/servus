@@ -275,14 +275,33 @@ const Platform = () => {
   // Actualizar días disponibles cuando cambian los busy slots (después de cargar)
   useEffect(() => {
     // Solo actualizar si ya tenemos los busy slots cargados
-    if (busySlots.length >= 0) { // Siempre ejecutar, incluso si está vacío
+    if (busySlots.length >= 0) {
+      // Memoizar la función para evitar recrearla en cada render
       const allDays = generateAllDays();
+      // Filtrar días disponibles solo una vez por cambio de busySlots
       const filteredDays = allDays
-        .filter((day) => dayHasAvailableSlots(day))
+        .filter((day) => {
+          // Verificar si al menos un horario está disponible
+          return timeSlots.some((timeSlot) => {
+            const slotStart = new Date(day.date);
+            slotStart.setHours(timeSlot.start, 0, 0, 0);
+            const slotEnd = new Date(day.date);
+            slotEnd.setHours(timeSlot.end, 0, 0, 0);
+            return !busySlots.some((busySlot) => {
+              const busyStart = new Date(busySlot.start);
+              const busyEnd = new Date(busySlot.end);
+              return (
+                (slotStart >= busyStart && slotStart < busyEnd) ||
+                (slotEnd > busyStart && slotEnd <= busyEnd) ||
+                (slotStart <= busyStart && slotEnd >= busyEnd)
+              );
+            });
+          });
+        })
         .slice(0, 8); // Limitar a 8 días (4 filas x 2 columnas)
       setAvailableDays(filteredDays);
     }
-  }, [busySlots, dayHasAvailableSlots]);
+  }, [busySlots]);
 
   // Manejar clic fuera del modal
   const handleClickOutside = useCallback(
@@ -435,7 +454,7 @@ const Platform = () => {
               Tell your idea to the <span className="text-primary">servus</span>{" "}
               team.
             </h2>
-            <p className="text-muted text-opacity-60 text-18">
+            <p className="text-muted text-18">
               Schedule a meeting through Google and a person 
               <br /> from the team will listen to your needs 
               <br /> and explain how we can work on it.

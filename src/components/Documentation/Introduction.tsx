@@ -69,7 +69,7 @@ export const Introduction = () => {
                 >
                   <Image
                     src= {`${getImagePrefix()}${item.img}`}
-                    alt="npm-package"
+                    alt={`${item.packageName} logo`}
                     width={40}
                     height={40}
                     className=" mx-auto w-10 h-10 "
@@ -83,15 +83,15 @@ export const Introduction = () => {
             })}
         </div>
         <div className="mt-5">
-          <p className="text-base font-medium text-muted text-opacity-60">
+          <p className="text-base font-medium text-muted">
             Servus Tailwind NextJs Template is built with Tailwindcss and
             Nextjs.
           </p>
-          <p className="text-base font-medium text-muted text-opacity-60">
+          <p className="text-base font-medium text-muted">
             These theme is ready to use and you can totally customize as per
             your requirement.
           </p>
-          <p className="text-base font-medium text-muted text-opacity-60">
+          <p className="text-base font-medium text-muted">
             For Customize, You should have knowledge of NextJs, ReactJs,
             Tailwind and JSX to be able to modify these template.
           </p>
