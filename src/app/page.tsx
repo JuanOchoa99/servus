@@ -3,6 +3,7 @@ import Hero from "@/components/Home/Hero";
 import Work from "@/components/Home/work";
 import Platform from "@/components/Home/platform";
 import Portfolio from "@/components/Home/portfolio";
+import Team from "@/components/Home/team";
 import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Servus",
@@ -15,6 +16,7 @@ export default function Home() {
       <Work />
       <Platform />
       <Portfolio />
+      <Team />
     </main>
   );
 }
